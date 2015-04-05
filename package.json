@@ -1,0 +1,26 @@
+{
+  "name": "formdatabuilder",
+  "version": "0.1.0",
+  "description": "an alternative FormData object in Web Workers",
+  "main": "FormDataBuilder.js",
+  "private": true,
+  "scripts": {
+    "test": "./phantom",
+    "compile": "./compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/knowledgecode/formdatabuilder.git"
+  },
+  "author": "KNOWLEDGECODE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/knowledgecode/formdatabuilder/issues"
+  },
+  "homepage": "https://github.com/knowledgecode/formdatabuilder",
+  "devDependencies": {
+    "es6-promise": "^2.0.1",
+    "expect.js": "^0.3.1",
+    "mocha": "^2.2.1"
+  }
+}

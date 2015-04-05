@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./node_modules/mocha/mocha.css">
+    <title>FormDataBuilder</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" id="name" name="name">
+      <input type="text" id="email" name="email">
+      <input type="file" id="photo1" name="photo1">
+      <input type="file" id="photo2" name="photo2">
+      <input type="button" id="button" value="Go">
+    </form>
+    <div id="mocha"></div>
+    <script src="./node_modules/mocha/mocha.js"></script>
+    <script src="./node_modules/expect.js/index.js"></script>
+    <script src="WebConsole.js"></script>
+    <script>
+      mocha.setup({ ui: 'bdd', reporter: WebConsole });
+    </script>
+    <script src="./node_modules/es6-promise/dist/es6-promise.min.js"></script>
+    <script src="FormDataBuilder.js"></script>
+    <script src="test.js"></script>
+    <script>
+      ES6Promise.polyfill();
+      window.addEventListener('load', function () {
+        document.getElementById('button').addEventListener('click', function () {
+          mocha.run(function (failure) {
+            if (failure) {
+              console.log('exit 1');
+            } else {
+              console.log('exit 0');
+            }
+          });
+        });
+      }, false);
+    </script>
+  </body>
+</html>

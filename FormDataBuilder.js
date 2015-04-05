@@ -1,8 +1,6 @@
 /**
  * @preserve FormDataBuilder.js (c) 2015 KNOWLEDGECODE | MIT
  */
-/*jslint plusplus: true */
-/*global Blob, define */
 (function (global) {
     'use strict';
 
@@ -14,12 +12,21 @@
     };
 
     FormDataBuilder.prototype.append = function (name, value) {
-        var pair = {
-            disposition: 'form-data; name="' + (name || '').replace(/"/g, '%22') + '"'
-        };
+        var type = Object.prototype.toString.call(value),
+            enc = function (str) {
+                // WebKit's behavior
+                return str.replace(/\r/g, '%0D').replace(/\n/g, '%0A').replace(/"/g, '%22');
+            },
+            pair = {
+                disposition: 'form-data; name="' + enc(name || '') + '"'
+            };
 
-        if (value instanceof Blob) {
-            pair.disposition += '; filename="' + (value.name || 'blob').replace(/"/g, '%22') + '"';
+        // WebKit's behavior
+        if (!name) {
+            return;
+        }
+        if (type === '[object File]' || type === '[object Blob]') {
+            pair.disposition += '; filename="' + enc(value.name || 'blob') + '"';
             pair.type = value.type || 'application/octet-stream';
             pair.value = value;
         } else {
@@ -39,18 +46,18 @@
             array.push(this.pairs[i].value);
             array.push(this.crlf);
         }
-        if (len) {
-            array.push('--' + this.boundary + '--' + this.crlf);
-        }
-        return new Blob(array);
+        array.push('--' + this.boundary + '--' + this.crlf);
+        return global.Blob ? new Blob(array) : new global.FileReaderSync().readAsArrayBuffer((function (data) {
+            var Builder = global.BlobBuilder || global.WebKitBlobBuilder || global.MSBlobBuilder,
+                blob = new Builder();
+
+            (data || []).forEach(function (d) {
+                blob.append(d);
+            });
+            return blob.getBlob();
+        }(array)));
     };
 
-    if (typeof define === 'function' && define.amd) {
-        define([], function () {
-            return FormDataBuilder;
-        });
-    } else {
-        global.FormDataBuilder = FormDataBuilder;
-    }
+    global.FormDataBuilder = FormDataBuilder;
 
 }(this));
