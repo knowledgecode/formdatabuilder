@@ -2,19 +2,14 @@
 'use strict';
 
 var page = require('webpage').create(),
-    url = 'http://localhost:3000/';
+    url = 'http://localhost:3000/test/';
 
-page.onConsoleMessage = function(msg) {
-    switch (msg) {
-    case 'exit 0':
-        phantom.exit(0);
-        break;
-    case 'exit 1':
-        phantom.exit(1);
-        break;
-    default:
-        console.log(msg);
-    }
+page.onConsoleMessage = function (msg) {
+    console.log(msg);
+};
+
+page.onCallback = function (data) {
+    phantom.exit(data | 0);
 };
 
 page.open(url, function (status) {

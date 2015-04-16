@@ -10,7 +10,7 @@ http.createServer(function (req, res) {
     var boundary;
     var onReadable;
 
-    if (req.url === '/upload' && req.method.toLowerCase() === 'post') {
+    if (req.url === '/test/upload' && req.method.toLowerCase() === 'post') {
         onReadable = function () {
             buffer.length = 0;
             req.removeListener('readable', onReadable);
@@ -46,7 +46,7 @@ http.createServer(function (req, res) {
     };
 
     if (req.method.toLowerCase() === 'get') {
-        var file = path.join(__dirname, req.url === '/' ? '/index.html' : req.url);
+        var file = path.join(__dirname, req.url === '/test/' ? '/test/index.html' : req.url);
 
         fs.readFile(file, function (err, body) {
             if (err) {

@@ -1,9 +1,0 @@
-#!/bin/sh
-
-set -eu
-
-node server.js &
-pid=$!
-
-trap 'kill $pid' EXIT INT
-phantomjs runner.js
