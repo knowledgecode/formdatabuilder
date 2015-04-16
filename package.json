@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "description": "an alternative FormData object in Web Workers",
   "main": "FormDataBuilder.js",
-  "private": true,
   "scripts": {
-    "test": "./phantom",
+    "test": "test/phantom",
     "compile": "./compile"
   },
   "repository": {
