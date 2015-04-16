@@ -1,0 +1,36 @@
+{
+  "name": "formdatabuilder",
+  "main": "formdatabuilder.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/knowledgecode/formdatabuilder",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/knowledgecode/formdatabuilder.git"
+  },
+  "authors": [
+    "knowledgecode <knowledgecode@gmail.com>"
+  ],
+  "description": "an alternative FormData object in Web Workers",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "FormData",
+    "polyfill",
+    "Web Workers",
+    "file",
+    "upload",
+    "multipart",
+    "post"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "circle.yml",
+    "compile",
+    "package.json",
+    "server.js"
+  ]
+}
