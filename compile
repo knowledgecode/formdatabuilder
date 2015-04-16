@@ -1,9 +1,9 @@
 #!/bin/sh
 
 url="http://closure-compiler.appspot.com/compile"
-input="FormDataBuilder.js"
-output="FormDataBuilder.min.js"
-
+dir=`dirname $0`
+input="${dir}/FormDataBuilder.js"
+output="${dir}/FormDataBuilder.min.js"
 js_code=`cat $input`
 
 curl --silent \
