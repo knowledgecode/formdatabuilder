@@ -2,7 +2,7 @@
 (function () {
     'use strict';
 
-    var url = 'http://localhost:3000/upload',
+    var url = 'http://localhost:3000/test/upload',
         worker = new Worker('worker.js'),
         post = function (form) {
             return new Promise(function (resolve, reject) {

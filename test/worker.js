@@ -1,7 +1,7 @@
 /*global importScripts, FormDataBuilder */
 'use strict';
 
-importScripts('FormDataBuilder.js');
+importScripts('../FormDataBuilder.js');
 
 self.onmessage = function (evt) {
     var form = new FormDataBuilder(),

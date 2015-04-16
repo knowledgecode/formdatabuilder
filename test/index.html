@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="./node_modules/mocha/mocha.css">
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
     <title>FormDataBuilder</title>
   </head>
   <body>
@@ -15,27 +15,29 @@
       <input type="button" id="button" value="Go">
     </form>
     <div id="mocha"></div>
-    <script src="./node_modules/mocha/mocha.js"></script>
-    <script src="./node_modules/expect.js/index.js"></script>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/expect.js/index.js"></script>
     <script src="WebConsole.js"></script>
     <script>
-      mocha.setup({ ui: 'bdd', reporter: WebConsole });
+      if (window.callPhantom) {
+        mocha.setup({ ui: 'bdd', reporter: WebConsole });
+      } else {
+        mocha.setup('bdd');
+      }
     </script>
-    <script src="./node_modules/es6-promise/dist/es6-promise.min.js"></script>
-    <script src="FormDataBuilder.js"></script>
+    <script src="../node_modules/es6-promise/dist/es6-promise.min.js"></script>
+    <script src="../FormDataBuilder.js"></script>
     <script src="test.js"></script>
     <script>
       ES6Promise.polyfill();
       window.addEventListener('load', function () {
         document.getElementById('button').addEventListener('click', function () {
           mocha.run(function (failure) {
-            if (failure) {
-              console.log('exit 1');
-            } else {
-              console.log('exit 0');
+            if (window.callPhantom) {
+              callPhantom(failure);
             }
           });
-        });
+        }, false);
       }, false);
     </script>
   </body>

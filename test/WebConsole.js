@@ -1,3 +1,8 @@
+/**
+ * WebConsole-reporter
+ * https://github.com/eeroan/WebConsole-reporter
+ * Eero Anttila <eea@iki.fi>
+ */
 ;
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
