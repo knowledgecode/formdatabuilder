@@ -1,4 +1,4 @@
-# FormDataBuilder [![Circle CI](https://circleci.com/gh/knowledgecode/formdatabuilder.svg?style=svg)](https://circleci.com/gh/knowledgecode/formdatabuilder)
+# FormDataBuilder [![Circle CI](https://circleci.com/gh/knowledgecode/formdatabuilder.svg?style=shield)](https://circleci.com/gh/knowledgecode/formdatabuilder)
 This is an alternative [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) object in Web Workers. It's not a polyfill, but it has similar interface and can be created blob to send via XHR2.  
 ## WHY
 When we upload files via multipart/form-data, `FormData` object is very useful. However according to my investigation, in Web Workers it seems not to be able to use it except Chrome for now. It would be better if could create the polyfill, but it's probably impossible because at least there is a problem with converting to string from binary.  
