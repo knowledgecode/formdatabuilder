@@ -1,5 +1,5 @@
 /**
- * @preserve FormDataBuilder.js (c) 2015 KNOWLEDGECODE | MIT
+ * @preserve formdatabuilder.js (c) 2015 KNOWLEDGECODE | MIT
  */
 (function (global) {
     'use strict';
