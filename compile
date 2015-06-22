@@ -2,8 +2,8 @@
 
 url="http://closure-compiler.appspot.com/compile"
 dir=`dirname $0`
-input="${dir}/FormDataBuilder.js"
-output="${dir}/FormDataBuilder.min.js"
+input="${dir}/formdatabuilder.js"
+output="${dir}/formdatabuilder.min.js"
 js_code=`cat $input`
 
 curl --silent \
