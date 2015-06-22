@@ -1,8 +1,8 @@
 {
   "name": "formdatabuilder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "an alternative FormData object in Web Workers",
-  "main": "FormDataBuilder.js",
+  "main": "formdatabuilder.js",
   "scripts": {
     "test": "test/phantom",
     "compile": "./compile"
@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/knowledgecode/formdatabuilder",
   "devDependencies": {
-    "es6-promise": "^2.0.1",
+    "es6-promise": "^2.3.0",
     "expect.js": "^0.3.1",
-    "mocha": "^2.2.1"
+    "mocha": "^2.2.5"
   }
 }
